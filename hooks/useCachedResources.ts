@@ -15,7 +15,9 @@ export default function useCachedResources() {
         // Load fonts
         await Font.loadAsync({
           octicons: require("../assets/fonts/Octicons.ttf"),
-          "space-mono": require("../assets/fonts/SpaceMono-Regular.ttf"),
+          "epilogue-regular": require("../assets/fonts/Epilogue-Regular.ttf"),
+          "epilogue-bold": require("../assets/fonts/Epilogue-Bold.ttf"),
+          "epilogue-black": require("../assets/fonts/Epilogue-Black.ttf"),
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service
