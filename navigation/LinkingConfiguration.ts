@@ -13,19 +13,27 @@ const linking: LinkingOptions<RootStackParamList> = {
   prefixes: [Linking.makeUrl("/")],
   config: {
     screens: {
-      Root: {
+      ListsTab: {
         screens: {
-          Lists: {
+          ListsStack: {
             screens: {
               ListsScreen: "two",
             },
           },
-          Trove: {
+        },
+      },
+      TroveTab: {
+        screens: {
+          TroveStack: {
             screens: {
               TroveScreen: "one",
             },
           },
-          Settings: {
+        },
+      },
+      SettingsTab: {
+        screens: {
+          SettingsStack: {
             screens: {
               SettingsScreen: "three",
             },

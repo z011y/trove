@@ -14,7 +14,7 @@ const TroveIcon = ({ active, theme }: TroveIconProps) => {
 
   const dark = {
     fill: "#245530",
-    outline: "#E5FBEB",
+    outline: "#B7DFBA",
   };
 
   return (
