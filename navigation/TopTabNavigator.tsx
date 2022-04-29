@@ -1,15 +1,13 @@
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import DateAddedScreen from "../screens/DateAddedScreen";
-import RecentlyViewedScreen from "../screens/RecentlyViewedScreen";
-import BrandNameScreen from "../screens/BrandNameScreen";
-import { useHeaderHeight } from "@react-navigation/elements";
+
+import MyTroveScreen from "../screens/MyTroveScreen";
+import TroveScreen from "../screens/TroveScreen";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 
 const Tab = createMaterialTopTabNavigator();
 
 export default function TopTabNavigator() {
-  const headerHeight = useHeaderHeight();
   const colorScheme = useColorScheme();
 
   return (
@@ -17,10 +15,10 @@ export default function TopTabNavigator() {
       sceneContainerStyle={{
         backgroundColor: Colors[colorScheme].background,
       }}
+      initialRouteName="MyTrove"
     >
       <Tab.Screen
         name="DateAdded"
-        component={DateAddedScreen}
         options={{
           title: "Date Added",
           tabBarStyle: {
@@ -36,20 +34,16 @@ export default function TopTabNavigator() {
           tabBarActiveTintColor: Colors[colorScheme].primary,
           tabBarInactiveTintColor: Colors[colorScheme].text,
           tabBarIndicatorStyle: {
-            // height: "50%",
-            // borderRadius: 24,
-            // marginBottom: 12,
-            // backgroundColor: Colors[colorScheme].primary,
-            // top: "25%",
             display: "none",
           },
         }}
-      />
+      >
+        {() => <TroveScreen filter="dateAdded" />}
+      </Tab.Screen>
       <Tab.Screen
-        name="RecentlyViewed"
-        component={RecentlyViewedScreen}
+        name="MyTrove"
         options={{
-          title: "Recently Viewed",
+          title: "My Trove",
           tabBarStyle: {
             backgroundColor: Colors[colorScheme].background,
             borderBottomWidth: 1,
@@ -63,20 +57,16 @@ export default function TopTabNavigator() {
           tabBarActiveTintColor: Colors[colorScheme].primary,
           tabBarInactiveTintColor: Colors[colorScheme].text,
           tabBarIndicatorStyle: {
-            // height: "50%",
-            // borderRadius: 24,
-            // marginBottom: 12,
-            // backgroundColor: Colors[colorScheme].primary,
-            // top: "25%",
             display: "none",
           },
         }}
-      />
+      >
+        {() => <MyTroveScreen />}
+      </Tab.Screen>
       <Tab.Screen
-        name="BrandName"
-        component={BrandNameScreen}
+        name="ByBrand"
         options={{
-          title: "Brand Name",
+          title: "By Brand",
           tabBarStyle: {
             backgroundColor: Colors[colorScheme].background,
             borderBottomWidth: 1,
@@ -90,15 +80,12 @@ export default function TopTabNavigator() {
           tabBarActiveTintColor: Colors[colorScheme].primary,
           tabBarInactiveTintColor: Colors[colorScheme].text,
           tabBarIndicatorStyle: {
-            // height: "50%",
-            // borderRadius: 24,
-            // marginBottom: 12,
-            // backgroundColor: Colors[colorScheme].primary,
-            // top: "25%",
             display: "none",
           },
         }}
-      />
+      >
+        {() => <TroveScreen filter="byBrand" />}
+      </Tab.Screen>
     </Tab.Navigator>
   );
 }

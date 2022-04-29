@@ -19,8 +19,9 @@ declare global {
 export type RootStackParamList = {
   TroveStack: NavigatorScreenParams<RootTabParamList> | undefined;
   ListsStack: NavigatorScreenParams<RootTabParamList> | undefined;
+  ListStack: NavigatorScreenParams<RootTabParamList> | undefined;
   SettingsStack: NavigatorScreenParams<RootTabParamList> | undefined;
-  Filter: undefined;
+  Item: undefined;
   NotFound: undefined;
 };
 

@@ -1,18 +1,20 @@
 import { StyleSheet } from "react-native";
+import { useContext } from "react";
 
-import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
+import { SessionContext } from "../context/SessionContext";
 
 export default function SettingsScreen() {
+  const session = useContext(SessionContext);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <EditScreenInfo path="/screens/SettingsScreen.tsx" />
+      <Text style={{ fontSize: 16 }}>
+        Logged in as{" "}
+        <Text style={{ fontFamily: "epilogue-bold" }}>
+          {session.user.email}
+        </Text>
+      </Text>
     </View>
   );
 }
